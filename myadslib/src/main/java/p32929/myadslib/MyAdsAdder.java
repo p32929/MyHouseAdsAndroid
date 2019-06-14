@@ -7,7 +7,6 @@ import java.util.Random;
 
 public class MyAdsAdder {
     MyAds myAds[];
-    LinearLayout linearLayout;
 
     public MyAdsAdder(MyAds... myAds) {
         this.myAds = myAds;
@@ -17,7 +16,9 @@ public class MyAdsAdder {
         Random random = new Random();
         int randomNumber = random.nextInt(myAds.length);
         MyAdsView myAdsView = new MyAdsView(context);
-        myAdsView.setValues(myAds[randomNumber].getAppIcon(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl());
+        myAdsView.setValues(
+                myAds[randomNumber].getAppIcon(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl()
+        );
         linearLayout.addView(myAdsView);
     }
 }

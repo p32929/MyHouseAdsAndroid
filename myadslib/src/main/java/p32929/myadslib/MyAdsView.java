@@ -7,9 +7,10 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MyAdsView extends View {
+public class MyAdsView extends RelativeLayout {
 
     private Context context;
     private ImageView imageViewAppIcon;
@@ -20,9 +21,9 @@ public class MyAdsView extends View {
         super(context, attrs);
 
         this.context = context;
-        View view = inflate(context, R.layout.my_ads, null);
-        imageViewAppIcon = view.findViewById(R.id.appIcon);
-        textViewAppName = view.findViewById(R.id.adText);
+        inflate(context, R.layout.my_ads, this);
+        imageViewAppIcon = findViewById(R.id.appIcon);
+        textViewAppName = findViewById(R.id.adText);
 
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.MyAdsView);
 
@@ -36,9 +37,9 @@ public class MyAdsView extends View {
         super(context);
 
         this.context = context;
-        View view = inflate(context, R.layout.my_ads, null);
-        imageViewAppIcon = view.findViewById(R.id.appIcon);
-        textViewAppName = view.findViewById(R.id.adText);
+        inflate(context, R.layout.my_ads, this);
+        imageViewAppIcon = findViewById(R.id.appIcon);
+        textViewAppName = findViewById(R.id.adText);
     }
 
     public void setValues(int appIcon, String adText, String url) {
