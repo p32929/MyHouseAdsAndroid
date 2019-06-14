@@ -3,5 +3,6 @@
     <declare-styleable name="MyAdsView">
         <attr name="image" format="reference"/>
         <attr name="adText" format="string"/>
+        <attr name="url" format="string"/>
     </declare-styleable>
 </resources>

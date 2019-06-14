@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:adText="Download the best Phone Addiction Remover"
-        app:image="@mipmap/ic_launcher"></p32929.myadslib.MyAdsView>
+        app:image="@mipmap/ic_launcher" />
 
 </LinearLayout>

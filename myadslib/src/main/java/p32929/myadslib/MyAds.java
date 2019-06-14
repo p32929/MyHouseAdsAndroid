@@ -1,9 +1,9 @@
 package p32929.myadslib;
 
 public class MyAds {
-    int appIcon;
-    String appName;
-    String appShortDesc;
-    int backgroundColor;
-    String appId;
+    private int appIcon;
+    private String appName;
+    private String appShortDesc;
+    private int backgroundColor;
+    private String appId;
 }
