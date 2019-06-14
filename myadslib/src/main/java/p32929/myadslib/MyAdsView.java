@@ -7,10 +7,9 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class MyAdsView extends RelativeLayout {
+public class MyAdsView extends View {
 
     private Context context;
     private ImageView imageViewAppIcon;
@@ -21,7 +20,7 @@ public class MyAdsView extends RelativeLayout {
         super(context, attrs);
 
         this.context = context;
-        inflate(context, R.layout.my_ads, this);
+        inflate(context, R.layout.my_ads, null);
         imageViewAppIcon = findViewById(R.id.appIcon);
         textViewAppName = findViewById(R.id.adText);
 
@@ -37,7 +36,7 @@ public class MyAdsView extends RelativeLayout {
         super(context);
 
         this.context = context;
-        inflate(context, R.layout.my_ads, this);
+        inflate(context, R.layout.my_ads, null);
         imageViewAppIcon = findViewById(R.id.appIcon);
         textViewAppName = findViewById(R.id.adText);
     }

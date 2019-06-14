@@ -12,9 +12,11 @@ public class MyAdsAdder {
         this.myAds = myAds;
     }
 
-    private void addAd(Context context, LinearLayout linearLayout) {
-        Random rand = new Random();
-        int i = rand.nextInt(myAds.length);
-
+    public void addAd(Context context, LinearLayout linearLayout) {
+        Random random = new Random();
+        int randomNumber = random.nextInt(myAds.length);
+        MyAdsView myAdsView = new MyAdsView(context);
+        myAdsView.setValues(myAds[randomNumber].getAppIcon(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl());
+        linearLayout.addView(myAdsView);
     }
 }
