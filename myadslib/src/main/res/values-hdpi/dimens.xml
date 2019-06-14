@@ -1,0 +1,4 @@
+<resources>
+	<dimen name="gpd">50dp</dimen>
+	<dimen name="text_size">14sp</dimen>
+</resources>
