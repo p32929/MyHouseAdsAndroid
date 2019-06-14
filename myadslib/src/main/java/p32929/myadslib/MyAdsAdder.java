@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class MyAdsAdder {
     MyAds myAds[];
+    LinearLayout linearLayout;
 
     public MyAdsAdder(MyAds... myAds) {
         this.myAds = myAds;

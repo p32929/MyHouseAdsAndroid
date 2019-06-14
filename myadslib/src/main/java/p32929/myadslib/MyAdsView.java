@@ -20,9 +20,9 @@ public class MyAdsView extends View {
         super(context, attrs);
 
         this.context = context;
-        inflate(context, R.layout.my_ads, null);
-        imageViewAppIcon = findViewById(R.id.appIcon);
-        textViewAppName = findViewById(R.id.adText);
+        View view = inflate(context, R.layout.my_ads, null);
+        imageViewAppIcon = view.findViewById(R.id.appIcon);
+        textViewAppName = view.findViewById(R.id.adText);
 
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.MyAdsView);
 
@@ -36,9 +36,9 @@ public class MyAdsView extends View {
         super(context);
 
         this.context = context;
-        inflate(context, R.layout.my_ads, null);
-        imageViewAppIcon = findViewById(R.id.appIcon);
-        textViewAppName = findViewById(R.id.adText);
+        View view = inflate(context, R.layout.my_ads, null);
+        imageViewAppIcon = view.findViewById(R.id.appIcon);
+        textViewAppName = view.findViewById(R.id.adText);
     }
 
     public void setValues(int appIcon, String adText, String url) {
