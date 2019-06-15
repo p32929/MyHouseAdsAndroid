@@ -22,19 +22,20 @@ public class MainActivity extends AppCompatActivity {
 
         // Show from JSON url
         myAdsAdder = new MyAdsAdder(
-                this, linearLayout,
+                this, null,
                 "https://raw.githubusercontent.com/p32929/SomeHowTosAndTexts/master/HouseAdsJson/house_ads.json"
         );
 
         // or to show from Device
 //        myAdsAdder = new MyAdsAdder(
-//                this, null,
+//                this, linearLayout,
 //                new MyAd(R.drawable.cgpa, "CGPA Calculator", "https://play.google.com/store/apps/details?id=p32929.cgpa_calculator2"),
 //                new MyAd(R.drawable.desplash, "Desplash - Automatic Unsplash Wallpapers", "https://play.google.com/store/apps/details?id=p32929.desplash"),
 //                new MyAd(R.drawable.postman, "The Great REST API Client", "https://play.google.com/store/apps/details?id=p32929.greatpostman"),
 //                new MyAd(R.drawable.sleepy, "Sleepy - Phone Addiction Conroller", "https://play.google.com/store/apps/details?id=p32929.lazyphone"),
 //                new MyAd(R.drawable.gpd, "Google Play APK Downloader", "https://github.com/p32929/EasyGooglePlayDownloader/releases/download/1.0.0.8/EasyGooglePlayDownloader-1.0.0.8.apk")
 //        );
+
     }
 
     public void showInter(View view) {
