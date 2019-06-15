@@ -15,4 +15,9 @@
 
     </LinearLayout>
 
+    <Button
+        android:layout_width="match_parent"
+        android:onClick="showInter"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>

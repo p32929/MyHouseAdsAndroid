@@ -1,11 +1,11 @@
 package p32929.myadslib;
 
-public class MyAds {
+public class MyAd {
     private int appIcon;
     private String appDescription;
     private String url;
 
-    public MyAds(int appIcon, String appDescription, String url) {
+    public MyAd(int appIcon, String appDescription, String url) {
         this.appIcon = appIcon;
         this.appDescription = appDescription;
         this.url = url;
