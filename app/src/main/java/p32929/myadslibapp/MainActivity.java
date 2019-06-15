@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import p32929.myadslib.MyAd;
 import p32929.myadslib.MyAdsAdder;
 
 public class MainActivity extends AppCompatActivity {
