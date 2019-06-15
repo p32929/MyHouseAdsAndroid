@@ -21,9 +21,9 @@
         android:layout_marginBottom="16dp"
         android:layout_toLeftOf="@+id/ll"
         android:layout_toRightOf="@+id/appIcon"
-        android:text="Download the best Phone Addiction Controller"
+        android:text="Best Phone Addiction Controller"
         android:textColor="#212121"
-        android:textSize="@dimen/text_size" />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:id="@+id/ll"
@@ -45,8 +45,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="★★★★★"
             android:layout_marginTop="4dp"
+            android:text="★★★★★"
             android:textColor="#FFC107" />
 
     </LinearLayout>

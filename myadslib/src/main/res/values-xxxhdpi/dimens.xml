@@ -1,4 +1,3 @@
 <resources>
 	<dimen name="gpd">70dp</dimen>
-	<dimen name="text_size">16sp</dimen>
 </resources>
