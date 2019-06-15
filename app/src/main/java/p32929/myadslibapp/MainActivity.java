@@ -19,10 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.layout);
         myAdsAdder = new MyAdsAdder(
-                new MyAds(R.drawable.cgpa, "CGPA Calculator", "https://www.google.com/"),
-                new MyAds(R.drawable.desplash, "Automatic Unsplash Wallpapers", "https://www.google.com/"),
-                new MyAds(R.drawable.postman, "The Great REST API Client", "https://www.google.com/"),
-                new MyAds(R.drawable.sleepy, "Best Phone Addiction Conroller", "https://www.google.com/")
+                new MyAds(R.drawable.cgpa, "CGPA Calculator", "https://play.google.com/store/apps/details?id=p32929.cgpa_calculator2"),
+                new MyAds(R.drawable.desplash, "Automatic Unsplash Wallpapers", "https://play.google.com/store/apps/details?id=p32929.desplash"),
+                new MyAds(R.drawable.postman, "The Great REST API Client", "https://play.google.com/store/apps/details?id=p32929.greatpostman"),
+                new MyAds(R.drawable.sleepy, "Best Phone Addiction Conroller", "https://play.google.com/store/apps/details?id=p32929.lazyphone"),
+                new MyAds(R.drawable.sleepy, "Google Play APK Downloader", "https://github.com/p32929/EasyGooglePlayDownloader/releases/download/1.0.0.8/EasyGooglePlayDownloader-1.0.0.8.apk")
         );
         myAdsAdder.addAd(this, linearLayout);
     }
