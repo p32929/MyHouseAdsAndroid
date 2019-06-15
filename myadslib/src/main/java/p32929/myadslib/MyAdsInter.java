@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class MyAdsInter {
     private View interAdView;
 
@@ -24,7 +26,7 @@ public class MyAdsInter {
             textViewAppName = interAdView.findViewById(R.id.adText);
         }
 
-        imageViewAppIcon.setImageResource(myAd.getAppIcon());
+        Picasso.get().load(myAd.getAppIconStr()).into(imageViewAppIcon);
         textViewAppName.setText(myAd.getAppDescription());
 
         new AlertDialog.Builder(context)

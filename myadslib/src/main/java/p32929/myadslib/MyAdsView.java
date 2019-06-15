@@ -18,16 +18,6 @@ public class MyAdsView extends RelativeLayout {
     private TextView textViewAppName;
     private String url;
 
-    public MyAdsView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-
-        this.context = context;
-        inflate(context, R.layout.my_ads, this);
-        imageViewAppIcon = findViewById(R.id.appIcon);
-        textViewAppName = findViewById(R.id.adText);
-        setOnClick();
-    }
-
     public MyAdsView(Context context) {
         super(context);
 

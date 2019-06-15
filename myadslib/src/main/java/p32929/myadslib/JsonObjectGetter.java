@@ -58,7 +58,12 @@ public class JsonObjectGetter extends AsyncTask<Void, Void, MyAd[]> {
                 sb.append((char) cp);
             }
 
-            JSONArray jsonArray = new JSONArray(sb.toString());
+            JSONArray jsonArray = new JSONArray("[{\n" +
+                    "\t\"appIconStr\" : \"https://i.imgur.com/nRNlRdL.jpg\",\n" +
+                    "\t\"appDescription\" : \"TESTING\",\n" +
+                    "\t\"url\" : \"https://p32929.github.io/Portfolio/\"\n" +
+                    "\t\n" +
+                    "}]");
             MyAd myAd[] = new MyAd[jsonArray.length()];
 
             for (int i = 0; i < jsonArray.length(); i++) {

@@ -22,15 +22,15 @@ public class MyAdsAdder {
         linearLayout.addView(myAdsView);
     }
 
-    public MyAdsAdder(final Context context, String url, final LinearLayout linearLayout) {
-        JsonObjectGetter jsonObjectGetter = new JsonObjectGetter(context, url, new JsonObjectGetListener() {
+    public MyAdsAdder(final Context context, final LinearLayout linearLayout, String url) {
+        new JsonObjectGetter(context, url, new JsonObjectGetListener() {
             @Override
             public void onUpdateAvailable(MyAd[] myAds) {
                 MyAdsAdder.this.myAds = myAds;
                 randomNumber = random.nextInt(myAds.length);
                 MyAdsView myAdsView = new MyAdsView(context);
                 myAdsView.setValues(
-                        myAds[randomNumber].getAppIcon(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl()
+                        myAds[randomNumber].getAppIconStr(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl()
                 );
                 linearLayout.addView(myAdsView);
             }
@@ -39,12 +39,15 @@ public class MyAdsAdder {
             public void onError(String error) {
                 Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show();
             }
-        });
-        jsonObjectGetter.execute();
+        }).execute();
     }
 
-    public void showInterAd(Context context, boolean finish) {
-        randomNumber = random.nextInt(myAds.length);
-        myAdsInter = new MyAdsInter(context, myAds[randomNumber], finish);
+    public boolean showInterAd(Context context, boolean finish) {
+        if (myAds != null) {
+            randomNumber = random.nextInt(myAds.length);
+            myAdsInter = new MyAdsInter(context, myAds[randomNumber], finish);
+            return true;
+        }
+        return false;
     }
 }
