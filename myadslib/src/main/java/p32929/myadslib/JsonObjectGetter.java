@@ -17,11 +17,13 @@ import java.nio.charset.Charset;
 
 public class JsonObjectGetter extends AsyncTask<Void, Void, MyAd[]> {
 
-    String TAG = getClass().getSimpleName();
+    private String TAG = getClass().getSimpleName();
 
-    Context context;
-    String jsonUrl;
-    JsonObjectGetListener listener;
+    private Context context;
+    private String jsonUrl;
+    private JsonObjectGetListener listener;
+
+    private Exception exception;
 
     public JsonObjectGetter(Context context, String jsonUrl, JsonObjectGetListener listener) {
         this.context = context;
@@ -71,7 +73,7 @@ public class JsonObjectGetter extends AsyncTask<Void, Void, MyAd[]> {
             }
             return myAd;
         } catch (Exception e) {
-            e.printStackTrace();
+            this.exception = e;
         }
 
         return null;
@@ -83,7 +85,7 @@ public class JsonObjectGetter extends AsyncTask<Void, Void, MyAd[]> {
         if (listener != null && myAds != null) {
             listener.onSuccess(myAds);
         } else {
-            listener.onError("Unknown error");
+            listener.onError(exception.toString());
         }
     }
 
