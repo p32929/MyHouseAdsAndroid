@@ -35,7 +35,7 @@ public class MyAdsView extends RelativeLayout {
     }
 
     public void setValues(String appIconStr, String adText, String url) {
-        Picasso.get().load(appIconStr).into(imageViewAppIcon);
+        Picasso.get().load(appIconStr).placeholder(R.drawable.ic_android_grey600_48dp).into(imageViewAppIcon);
         textViewAppName.setText(adText);
         this.url = url;
         setOnClick();

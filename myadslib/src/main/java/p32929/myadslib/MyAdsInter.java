@@ -26,7 +26,7 @@ public class MyAdsInter {
             textViewAppName = interAdView.findViewById(R.id.adText);
         }
 
-        Picasso.get().load(myAd.getAppIconStr()).into(imageViewAppIcon);
+        Picasso.get().load(myAd.getAppIconStr()).placeholder(R.drawable.ic_android_grey600_48dp).into(imageViewAppIcon);
         textViewAppName.setText(myAd.getAppDescription());
 
         new AlertDialog.Builder(context)
