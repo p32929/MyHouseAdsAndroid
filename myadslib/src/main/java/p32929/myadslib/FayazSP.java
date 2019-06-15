@@ -74,7 +74,7 @@ public class FayazSP {
     public static boolean[] loadBoolArray(String arrayName, Context mContext) {
         FayazSP.init(mContext);
         int size = FayazSP.getInt(arrayName + "_size", 0);
-        boolean array[] = new boolean[size];
+        boolean[] array = new boolean[size];
         for (int i = 0; i < size; i++)
             array[i] = FayazSP.getBoolean(arrayName + "_" + i, false);
 
@@ -92,7 +92,7 @@ public class FayazSP {
     public static String[] loadStringArray(String arrayName, Context mContext) {
         FayazSP.init(mContext);
         int size = FayazSP.getInt(arrayName + "_size", 0);
-        String array[] = new String[size];
+        String[] array = new String[size];
         for (int i = 0; i < size; i++)
             array[i] = FayazSP.getString(arrayName + "_" + i, "");
 

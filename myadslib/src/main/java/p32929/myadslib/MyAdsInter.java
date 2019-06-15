@@ -15,7 +15,6 @@ import com.squareup.picasso.Picasso;
 
 public class MyAdsInter {
     private View interAdView;
-
     private ImageView imageViewAppIcon;
     private TextView textViewAppName;
 

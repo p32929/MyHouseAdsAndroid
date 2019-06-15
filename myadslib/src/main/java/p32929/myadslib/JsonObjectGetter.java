@@ -61,7 +61,7 @@ public class JsonObjectGetter extends AsyncTask<Void, Void, MyAd[]> {
             }
 
             JSONArray jsonArray = new JSONArray(sb.toString());
-            MyAd myAd[] = new MyAd[jsonArray.length()];
+            MyAd[] myAd = new MyAd[jsonArray.length()];
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject object = jsonArray.getJSONObject(i);

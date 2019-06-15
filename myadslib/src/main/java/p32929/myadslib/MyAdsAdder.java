@@ -1,18 +1,15 @@
 package p32929.myadslib;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MyAdsAdder {
-    private MyAd myAds[];
-    private int aNumber = 0;
-    MyAdsInter myAdsInter;
-
     //
     private String theNumber = "theNumber";
-    private SharedPreferences sharedPreferences;
+    //
+    private MyAd[] myAds;
+    private int aNumber = 0;
 
     public MyAdsAdder(final Context context, final LinearLayout linearLayout, MyAd... myAds) {
         this.myAds = myAds;
@@ -49,7 +46,7 @@ public class MyAdsAdder {
 
     public boolean showInterAd(Context context, boolean finish) {
         if (myAds != null) {
-            myAdsInter = new MyAdsInter(context, myAds[aNumber], finish);
+            new MyAdsInter(context, myAds[aNumber], finish);
             setaNumber();
             return true;
         }
