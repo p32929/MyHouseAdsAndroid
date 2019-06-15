@@ -19,7 +19,8 @@ public class MyAdsAdder {
         myAdsView.setValues(
                 myAds[aNumber].getAppIcon(), myAds[aNumber].getAppDescription(), myAds[aNumber].getUrl()
         );
-        linearLayout.addView(myAdsView);
+        if (linearLayout != null)
+            linearLayout.addView(myAdsView);
         setaNumber();
     }
 
@@ -33,7 +34,8 @@ public class MyAdsAdder {
                 myAdsView.setValues(
                         myAds[aNumber].getAppIconStr(), myAds[aNumber].getAppDescription(), myAds[aNumber].getUrl()
                 );
-                linearLayout.addView(myAdsView);
+                if (linearLayout != null)
+                    linearLayout.addView(myAdsView);
                 setaNumber();
             }
 

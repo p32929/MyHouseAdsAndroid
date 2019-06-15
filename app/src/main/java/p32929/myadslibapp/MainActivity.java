@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Show from JSON url
         myAdsAdder = new MyAdsAdder(
-                this, linearLayout,
+                this, null,
                 "https://raw.githubusercontent.com/p32929/SomeHowTosAndTexts/master/HouseAdsJson/house_ads.json"
         );
 
