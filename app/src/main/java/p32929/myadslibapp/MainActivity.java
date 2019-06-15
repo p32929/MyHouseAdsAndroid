@@ -22,13 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Show from JSON url
         myAdsAdder = new MyAdsAdder(
-                this, null,
+                this, linearLayout,
                 "https://raw.githubusercontent.com/p32929/SomeHowTosAndTexts/master/HouseAdsJson/house_ads.json"
         );
 
         // or to show from Device
 //        myAdsAdder = new MyAdsAdder(
-//                this, linearLayout,
+//                this, null,
 //                new MyAd(R.drawable.cgpa, "CGPA Calculator", "https://play.google.com/store/apps/details?id=p32929.cgpa_calculator2"),
 //                new MyAd(R.drawable.desplash, "Desplash - Automatic Unsplash Wallpapers", "https://play.google.com/store/apps/details?id=p32929.desplash"),
 //                new MyAd(R.drawable.postman, "The Great REST API Client", "https://play.google.com/store/apps/details?id=p32929.greatpostman"),
