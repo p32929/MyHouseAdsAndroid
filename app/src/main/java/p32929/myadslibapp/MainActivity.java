@@ -19,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
 
         linearLayout = findViewById(R.id.layout);
         myAdsAdder = new MyAdsAdder(
-                new MyAds(R.mipmap.ic_launcher, "Hello1", "https://www.google.com/")
+                new MyAds(R.drawable.cgpa, "CGPA Calculator", "https://www.google.com/"),
+                new MyAds(R.drawable.desplash, "Automatic Unsplash Wallpapers", "https://www.google.com/"),
+                new MyAds(R.drawable.postman, "The Great REST API Client", "https://www.google.com/"),
+                new MyAds(R.drawable.sleepy, "Best Phone Addiction Conroller", "https://www.google.com/")
         );
         myAdsAdder.addAd(this, linearLayout);
     }
