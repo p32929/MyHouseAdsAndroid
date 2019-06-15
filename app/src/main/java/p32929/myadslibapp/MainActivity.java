@@ -21,15 +21,20 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.layout);
         myAdsAdder = new MyAdsAdder(
                 new MyAd(R.drawable.cgpa, "CGPA Calculator", "https://play.google.com/store/apps/details?id=p32929.cgpa_calculator2"),
-                new MyAd(R.drawable.desplash, "Automatic Unsplash Wallpapers", "https://play.google.com/store/apps/details?id=p32929.desplash"),
+                new MyAd(R.drawable.desplash, "Desplash - Automatic Unsplash Wallpapers", "https://play.google.com/store/apps/details?id=p32929.desplash"),
                 new MyAd(R.drawable.postman, "The Great REST API Client", "https://play.google.com/store/apps/details?id=p32929.greatpostman"),
-                new MyAd(R.drawable.sleepy, "Best Phone Addiction Conroller", "https://play.google.com/store/apps/details?id=p32929.lazyphone"),
-                new MyAd(R.drawable.sleepy, "Google Play APK Downloader", "https://github.com/p32929/EasyGooglePlayDownloader/releases/download/1.0.0.8/EasyGooglePlayDownloader-1.0.0.8.apk")
+                new MyAd(R.drawable.sleepy, "Sleepy - Phone Addiction Conroller", "https://play.google.com/store/apps/details?id=p32929.lazyphone"),
+                new MyAd(R.drawable.gpd, "Google Play APK Downloader", "https://github.com/p32929/EasyGooglePlayDownloader/releases/download/1.0.0.8/EasyGooglePlayDownloader-1.0.0.8.apk")
         );
         myAdsAdder.addAd(this, linearLayout);
     }
 
     public void showInter(View view) {
-        myAdsAdder.showInterAd(this);
+        myAdsAdder.showInterAd(this, false);
+    }
+
+    @Override
+    public void onBackPressed() {
+        myAdsAdder.showInterAd(this, true);
     }
 }

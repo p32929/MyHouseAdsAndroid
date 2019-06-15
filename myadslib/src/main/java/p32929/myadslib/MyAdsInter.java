@@ -1,5 +1,6 @@
 package p32929.myadslib;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +17,7 @@ public class MyAdsInter {
     private ImageView imageViewAppIcon;
     private TextView textViewAppName;
 
-    public MyAdsInter(final Context context, final MyAd myAd) {
+    public MyAdsInter(final Context context, final MyAd myAd, final boolean finish) {
         if (interAdView == null) {
             interAdView = LayoutInflater.from(context).inflate(R.layout.my_inter_ads, null);
             imageViewAppIcon = interAdView.findViewById(R.id.appIcon);
@@ -36,7 +37,14 @@ public class MyAdsInter {
                         context.startActivity(browse);
                     }
                 })
-                .setNegativeButton("Later", null)
+                .setNegativeButton(finish ? "Exit" : "Later", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (finish) {
+                            ((Activity) context).finish();
+                        }
+                    }
+                })
                 .show();
     }
 }

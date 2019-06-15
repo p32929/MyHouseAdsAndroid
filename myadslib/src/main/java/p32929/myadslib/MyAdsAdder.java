@@ -24,8 +24,8 @@ public class MyAdsAdder {
         linearLayout.addView(myAdsView);
     }
 
-    public void showInterAd(Context context) {
+    public void showInterAd(Context context, boolean finish) {
         randomNumber = random.nextInt(myAds.length);
-        myAdsInter = new MyAdsInter(context, myAds[randomNumber]);
+        myAdsInter = new MyAdsInter(context, myAds[randomNumber], finish);
     }
 }
