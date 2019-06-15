@@ -9,6 +9,7 @@
         android:id="@+id/appIcon"
         android:layout_width="44dp"
         android:layout_height="44dp"
+        android:scaleType="centerInside"
         android:layout_alignParentLeft="true"
         android:layout_margin="16dp" />
 
@@ -21,7 +22,7 @@
         android:layout_marginBottom="16dp"
         android:layout_toLeftOf="@+id/ll"
         android:layout_toRightOf="@+id/appIcon"
-        android:text="Best Phone Addiction Controller"
+        android:text="App Short Description"
         android:textColor="#595959"
         android:textSize="16sp" />
 

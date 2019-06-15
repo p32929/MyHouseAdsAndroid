@@ -2,13 +2,14 @@ package p32929.myadslib;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 public class MyAdsView extends RelativeLayout {
 
@@ -24,12 +25,6 @@ public class MyAdsView extends RelativeLayout {
         inflate(context, R.layout.my_ads, this);
         imageViewAppIcon = findViewById(R.id.appIcon);
         textViewAppName = findViewById(R.id.adText);
-
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.MyAdsView);
-
-        imageViewAppIcon.setImageDrawable(attributes.getDrawable(R.styleable.MyAdsView_image));
-        textViewAppName.setText(attributes.getText(R.styleable.MyAdsView_adText));
-        this.url = attributes.getText(R.styleable.MyAdsView_url).toString();
         setOnClick();
     }
 
@@ -43,7 +38,14 @@ public class MyAdsView extends RelativeLayout {
     }
 
     public void setValues(int appIcon, String adText, String url) {
-        imageViewAppIcon.setImageResource(appIcon);
+        Picasso.get().load(appIcon).into(imageViewAppIcon);
+        textViewAppName.setText(adText);
+        this.url = url;
+        setOnClick();
+    }
+
+    public void setValues(String appIconStr, String adText, String url) {
+        Picasso.get().load(appIconStr).into(imageViewAppIcon);
         textViewAppName.setText(adText);
         this.url = url;
         setOnClick();
