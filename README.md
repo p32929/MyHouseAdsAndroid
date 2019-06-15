@@ -27,7 +27,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-     implementation 'com.github.p32929:MyHouseAdsAndroid:1.0.0.2'
+     implementation 'com.github.p32929:MyHouseAdsAndroid:1.0.0.3'
 }
 ```
 
