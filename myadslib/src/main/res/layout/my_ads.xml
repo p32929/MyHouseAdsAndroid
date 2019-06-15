@@ -16,23 +16,39 @@
         android:id="@+id/adText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Download the best Phone Addiction Controller"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_toLeftOf="@+id/installText"
+        android:layout_toLeftOf="@+id/ll"
         android:layout_toRightOf="@+id/appIcon"
+        android:text="Download the best Phone Addiction Controller"
         android:textColor="#212121"
         android:textSize="@dimen/text_size" />
 
-    <ImageView
-        android:id="@+id/installText"
-        android:layout_width="@dimen/gpd"
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ggp" />
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/installText"
+            android:layout_width="@dimen/gpd"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ggp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="★★★★★"
+            android:layout_marginTop="4dp"
+            android:textColor="#FFC107" />
+
+    </LinearLayout>
 
 </RelativeLayout>
