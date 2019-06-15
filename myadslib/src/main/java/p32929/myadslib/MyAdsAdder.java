@@ -1,38 +1,43 @@
 package p32929.myadslib;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.util.Random;
-
 public class MyAdsAdder {
     private MyAd myAds[];
-    private Random random = new Random();
-    private int randomNumber;
+    private int aNumber = 0;
     MyAdsInter myAdsInter;
+
+    //
+    private String theNumber = "theNumber";
+    private SharedPreferences sharedPreferences;
 
     public MyAdsAdder(final Context context, final LinearLayout linearLayout, MyAd... myAds) {
         this.myAds = myAds;
-        randomNumber = random.nextInt(myAds.length);
+        spInit(context);
+
         MyAdsView myAdsView = new MyAdsView(context);
         myAdsView.setValues(
-                myAds[randomNumber].getAppIcon(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl()
+                myAds[aNumber].getAppIcon(), myAds[aNumber].getAppDescription(), myAds[aNumber].getUrl()
         );
         linearLayout.addView(myAdsView);
+        setaNumber();
     }
 
     public MyAdsAdder(final Context context, final LinearLayout linearLayout, String url) {
+        spInit(context);
         new JsonObjectGetter(context, url, new JsonObjectGetListener() {
             @Override
             public void onSuccess(MyAd[] myAds) {
                 MyAdsAdder.this.myAds = myAds;
-                randomNumber = random.nextInt(myAds.length);
                 MyAdsView myAdsView = new MyAdsView(context);
                 myAdsView.setValues(
-                        myAds[randomNumber].getAppIconStr(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl()
+                        myAds[aNumber].getAppIconStr(), myAds[aNumber].getAppDescription(), myAds[aNumber].getUrl()
                 );
                 linearLayout.addView(myAdsView);
+                setaNumber();
             }
 
             @Override
@@ -44,10 +49,23 @@ public class MyAdsAdder {
 
     public boolean showInterAd(Context context, boolean finish) {
         if (myAds != null) {
-            randomNumber = random.nextInt(myAds.length);
-            myAdsInter = new MyAdsInter(context, myAds[randomNumber], finish);
+            myAdsInter = new MyAdsInter(context, myAds[aNumber], finish);
+            setaNumber();
             return true;
         }
         return false;
+    }
+
+    private void spInit(Context context) {
+        FayazSP.init(context);
+        aNumber = FayazSP.getInt(theNumber, 0);
+    }
+
+    private void setaNumber() {
+        aNumber++;
+        if (aNumber == myAds.length) {
+            aNumber = 0;
+        }
+        FayazSP.put(theNumber, aNumber);
     }
 }
