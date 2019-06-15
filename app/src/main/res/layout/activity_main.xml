@@ -17,6 +17,7 @@
 
     <Button
         android:layout_width="match_parent"
+        android:text="Show Inter"
         android:onClick="showInter"
         android:layout_height="wrap_content" />
 
