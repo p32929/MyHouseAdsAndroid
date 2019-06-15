@@ -81,7 +81,7 @@ public class JsonObjectGetter extends AsyncTask<Void, Void, MyAd[]> {
     protected void onPostExecute(MyAd[] myAds) {
         super.onPostExecute(myAds);
         if (listener != null && myAds != null) {
-            listener.onUpdateAvailable(myAds);
+            listener.onSuccess(myAds);
         } else {
             listener.onError("Unknown error");
         }

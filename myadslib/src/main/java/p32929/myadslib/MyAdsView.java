@@ -3,7 +3,6 @@ package p32929.myadslib;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -28,7 +27,7 @@ public class MyAdsView extends RelativeLayout {
     }
 
     public void setValues(int appIcon, String adText, String url) {
-        Picasso.get().load(appIcon).into(imageViewAppIcon);
+        imageViewAppIcon.setImageDrawable(context.getResources().getDrawable(appIcon));
         textViewAppName.setText(adText);
         this.url = url;
         setOnClick();

@@ -2,7 +2,6 @@ package p32929.myadslib;
 
 import android.content.Context;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -23,9 +22,11 @@ public class MyAdsAdder {
     }
 
     public MyAdsAdder(final Context context, final LinearLayout linearLayout, String url) {
+        final JsonObjectGetListener jsonObjectGetListener = (JsonObjectGetListener) context;
+
         new JsonObjectGetter(context, url, new JsonObjectGetListener() {
             @Override
-            public void onUpdateAvailable(MyAd[] myAds) {
+            public void onSuccess(MyAd[] myAds) {
                 MyAdsAdder.this.myAds = myAds;
                 randomNumber = random.nextInt(myAds.length);
                 MyAdsView myAdsView = new MyAdsView(context);
@@ -33,11 +34,12 @@ public class MyAdsAdder {
                         myAds[randomNumber].getAppIconStr(), myAds[randomNumber].getAppDescription(), myAds[randomNumber].getUrl()
                 );
                 linearLayout.addView(myAdsView);
+                jsonObjectGetListener.onSuccess(myAds);
             }
 
             @Override
             public void onError(String error) {
-                Toast.makeText(context, "" + error, Toast.LENGTH_SHORT).show();
+                jsonObjectGetListener.onError(error);
             }
         }).execute();
     }
