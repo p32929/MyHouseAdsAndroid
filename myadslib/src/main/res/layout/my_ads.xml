@@ -22,7 +22,7 @@
         android:layout_toLeftOf="@+id/ll"
         android:layout_toRightOf="@+id/appIcon"
         android:text="Best Phone Addiction Controller"
-        android:textColor="#212121"
+        android:textColor="#595959"
         android:textSize="16sp" />
 
     <LinearLayout

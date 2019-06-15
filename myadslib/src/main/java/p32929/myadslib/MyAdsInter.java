@@ -15,25 +15,24 @@ public class MyAdsInter {
 
     private ImageView imageViewAppIcon;
     private TextView textViewAppName;
-    private String url;
 
-    public MyAdsInter(final Context context, MyAd myAd) {
-        if (interAdView == null)
+    public MyAdsInter(final Context context, final MyAd myAd) {
+        if (interAdView == null) {
             interAdView = LayoutInflater.from(context).inflate(R.layout.my_inter_ads, null);
-
-        imageViewAppIcon = interAdView.findViewById(R.id.appIcon);
-        textViewAppName = interAdView.findViewById(R.id.adText);
+            imageViewAppIcon = interAdView.findViewById(R.id.appIcon);
+            textViewAppName = interAdView.findViewById(R.id.adText);
+        }
 
         imageViewAppIcon.setImageResource(myAd.getAppIcon());
         textViewAppName.setText(myAd.getAppDescription());
-        this.url = myAd.getUrl();
 
         new AlertDialog.Builder(context)
                 .setView(interAdView)
+                .setTitle("Recommended Apps")
                 .setPositiveButton("Download", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        Intent browse = new Intent(Intent.ACTION_VIEW, Uri.parse(myAd.getUrl()));
                         context.startActivity(browse);
                     }
                 })

@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/appIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginBottom="16dp" />
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sleepy Addiction Controller"
-        android:textColor="#212121"
+        android:textColor="#595959"
         android:textSize="16sp" />
 
 </LinearLayout>
