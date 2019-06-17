@@ -14,6 +14,13 @@
         android:scaleType="centerInside" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="★★★★★"
+        android:textColor="#FFC107" />
+
+    <TextView
         android:id="@+id/adText"
         android:layout_width="wrap_content"
         android:textAlignment="center"
