@@ -8,11 +8,11 @@ A library for cross promoting own apps within own apps - for Android
 
 ### Interstitial ad on any button press:
 
-![Screenshot_2019-06-15-19-47-59](https://user-images.githubusercontent.com/6418354/59552339-60ed8500-8fa7-11e9-8228-259d6fc07207.png)
+![Screenshot_2019-06-17-10-09-33](https://user-images.githubusercontent.com/6418354/59578030-16275680-90e8-11e9-8e05-7f4b0c75e6df.png)
 
 ### Interstitial ad on back press:
 
-![Screenshot_2019-06-15-19-48-02](https://user-images.githubusercontent.com/6418354/59552344-6fd43780-8fa7-11e9-988e-f09648973286.png)
+![Screenshot_2019-06-17-10-07-54](https://user-images.githubusercontent.com/6418354/59577985-e24c3100-90e7-11e9-828f-1dc0a1a7e389.png)
 
 ## Installation
 Add it in your root build.gradle at the end of repositories:
@@ -27,7 +27,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-     implementation 'com.github.p32929:MyHouseAdsAndroid:1.0.1'
+     implementation 'com.github.p32929:MyHouseAdsAndroid:1.0.2'
 }
 ```
 
