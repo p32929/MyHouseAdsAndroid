@@ -1,0 +1,1 @@
+-keep class p32929.myadslib.MyAd { *; }

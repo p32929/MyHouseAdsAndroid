@@ -1,0 +1,27 @@
+[
+  {
+    "appIconStr": "https://raw.githubusercontent.com/p32929/p32929_openstore/main/screenshots/put-phone-down/icon.png",
+    "appDescription": "Put Phone Down - lock your phone and rest",
+    "url": "https://openstore.pfay.workers.dev/app/p32929/put-phone-down"
+  },
+  {
+    "appIconStr": "https://raw.githubusercontent.com/p32929/p32929_openstore/main/screenshots/the-great-postman/icon.png",
+    "appDescription": "The Great Postman - REST API client",
+    "url": "https://openstore.pfay.workers.dev/app/p32929/the-great-postman"
+  },
+  {
+    "appIconStr": "https://raw.githubusercontent.com/p32929/p32929_openstore/main/screenshots/desplash/icon.png",
+    "appDescription": "Desplash - fresh HD wallpapers",
+    "url": "https://openstore.pfay.workers.dev/app/p32929/desplash"
+  },
+  {
+    "appIconStr": "https://raw.githubusercontent.com/p32929/p32929_openstore/main/screenshots/cgpa-calculator/icon.png",
+    "appDescription": "CGPA Calculator - fast and offline",
+    "url": "https://openstore.pfay.workers.dev/app/p32929/cgpa-calculator"
+  },
+  {
+    "appIconStr": "https://raw.githubusercontent.com/p32929/p32929_openstore/main/screenshots/animal-lover/icon-new.png",
+    "appDescription": "Animal Lover - 580+ animals to explore",
+    "url": "https://openstore.pfay.workers.dev/app/p32929/animal-lover"
+  }
+]

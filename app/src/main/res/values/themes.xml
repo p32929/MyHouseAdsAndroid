@@ -1,0 +1,5 @@
+<resources>
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar" tools:targetApi="m" xmlns:tools="http://schemas.android.com/tools">true</item>
+    </style>
+</resources>

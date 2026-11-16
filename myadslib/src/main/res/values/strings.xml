@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyAdsLib</string>
+    <string name="myads_label">Ad</string>
+    <string name="myads_label_inter">Ad · You might like</string>
+    <string name="myads_get">Get</string>
+    <string name="myads_get_it">Get it</string>
+    <string name="myads_later">Later</string>
+    <string name="myads_exit">Exit</string>
 </resources>

@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="24dp">
 
-    <LinearLayout
-        android:id="@+id/layout"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="MyHouseAds"
+        android:textAppearance="?attr/textAppearanceHeadlineLarge" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Promote your own apps inside your own apps. The banner below and the interstitial take turns showing each app in your list."
+        android:textAppearance="?attr/textAppearanceBodyLarge" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/showInter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:layout_marginTop="24dp"
+        android:text="Show interstitial" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Press back to see the interstitial with an Exit button."
+        android:textAppearance="?attr/textAppearanceBodyMedium" />
 
-    </LinearLayout>
-
-    <Button
+    <Space
         android:layout_width="match_parent"
-        android:text="Show Inter"
-        android:onClick="showInter"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/adsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+</LinearLayout>

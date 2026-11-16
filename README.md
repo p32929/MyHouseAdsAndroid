@@ -1,85 +1,110 @@
 # MyHouseAdsAndroid
 
-A library (V1) for cross-promoting your own Android apps inside your own Android apps — banner and interstitial house ads, loaded from a JSON file you host or from a hardcoded list. No ad network involved.
+Promote your own Android apps inside your own Android apps. MyHouseAdsAndroid shows a small banner and a full interstitial for your other apps, loaded from a JSON file you host or from a list in your code. No ad network, no account, no revenue share.
 
-A newer and better version of this library can be found here: https://github.com/p32929/HouseAds2
+Each time an ad is shown, the next app in your list is used, so all your apps get their turn. The ads take their colors from your app's theme, so they look right in light and dark mode.
+
+## Screenshots
+
+| Light | Dark |
+|---|---|
+| ![Light](docs/screenshots/light.png) | ![Dark](docs/screenshots/dark.png) |
 
 ## Features
 
-- **Banner and interstitial house ads** — your apps, your icons, your Play Store links
-- **Two ways to feed it** — a JSON URL you control, or `MyAd` objects straight in code
-- **Interstitial on back press** — one override, and it falls through to normal back when there's nothing to show
-- **No third-party ad SDK** and no revenue share
+1. **Banner ad:** your app's icon, a short line of text and a "Get" button. Tapping it opens your link.
+2. **Interstitial ad:** a centered card with a big icon, "Get it" and "Later".
+3. **Ad on back press:** the close button says "Exit" and closes the screen, so the ad never traps your users.
+4. **Two ways to feed it:** a JSON file at any URL, or `MyAd` items in code.
+5. **Follows your theme:** uses your app's primary color and background, in light and dark mode.
+6. **Small:** no image or network library is added to your app.
 
-## Screenshots:
-### Banner Ad:
+## Install
 
-![Screenshot_2019-06-15-19-47-55](https://user-images.githubusercontent.com/6418354/59552318-2daaf600-8fa7-11e9-84eb-1c322fb51344.png)
+Add JitPack to `settings.gradle.kts`:
 
-### Interstitial ad on any button press:
-
-![Screenshot_2019-06-17-10-09-33](https://user-images.githubusercontent.com/6418354/59578030-16275680-90e8-11e9-8e05-7f4b0c75e6df.png)
-
-### Interstitial ad on back press:
-
-![Screenshot_2019-06-17-10-07-54](https://user-images.githubusercontent.com/6418354/59577985-e24c3100-90e7-11e9-828f-1dc0a1a7e389.png)
-
-## Installation
-Add it in your root build.gradle at the end of repositories:
-```gradle
-allprojects {
-  repositories {
-    maven { url 'https://jitpack.io' }
-  }
-}
-```
-
-Add the dependency
-```gradle
-dependencies {
-     implementation 'com.github.p32929:MyHouseAdsAndroid:1.0.2'
-}
-```
-
-## How to use
-### Code Example:
-
-Adding ads data:
-```java
-MyAdsAdder myAdsAdder = new MyAdsAdder(
-                this, linearLayout,
-                "https://raw.githubusercontent.com/p32929/SomeHowTosAndTexts/master/HouseAdsJson/house_ads.json"
-);
-```
-
-or
-```java
-MyAdsAdder myAdsAdder = new MyAdsAdder(
-                this, linearLayout,
-                new MyAd(R.drawable.cgpa, "CGPA Calculator", "https://play.google.com/store/apps/details?id=p32929.cgpa_calculator2"),
-                new MyAd(R.drawable.desplash, "Desplash - Automatic Unsplash Wallpapers", "https://play.google.com/store/apps/details?id=p32929.desplash"),
-                new MyAd(R.drawable.postman, "The Great REST API Client", "https://play.google.com/store/apps/details?id=p32929.greatpostman"),
-                new MyAd(R.drawable.sleepy, "Sleepy - Phone Addiction Conroller", "https://play.google.com/store/apps/details?id=p32929.lazyphone"),
-                new MyAd(R.drawable.gpd, "Google Play APK Downloader", "https://github.com/p32929/EasyGooglePlayDownloader/releases/download/1.0.0.8/EasyGooglePlayDownloader-1.0.0.8.apk")
-);
-```
-
-To show interstitial ads anywhere:
-
-```java
-myAdsAdder.showInterAd(this, false);
-```
-
-To show interstitial ads on back press:
-
-```java
-@Override
-public void onBackPressed() {
-    if (!myAdsAdder.showInterAd(this, true)) {
-        super.onBackPressed();
+```kotlin
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven("https://jitpack.io")
     }
 }
 ```
+
+Add the dependency:
+
+```kotlin
+dependencies {
+    implementation("com.github.p32929:MyHouseAdsAndroid:2.0.0")
+}
+```
+
+Requires Android 5.0 (API 21) or newer. Your app's theme should be an AppCompat or Material theme.
+
+## The JSON file
+
+Host a JSON file anywhere (GitHub, a Gist, your own server). The format is the same as in version 1. See [docs/sample-ads.json](docs/sample-ads.json).
+
+```json
+[
+  {
+    "appIconStr": "https://example.com/icon.png",
+    "appDescription": "My App - what it does in a few words",
+    "url": "https://play.google.com/store/apps/details?id=com.example.myapp"
+  }
+]
+```
+
+## How to use
+
+Kotlin:
+
+```kotlin
+// Banner goes into this LinearLayout. Pass null if you only want interstitials.
+val ads = MyAdsAdder(this, linearLayout, "https://example.com/house_ads.json")
+
+// Or from code
+val ads = MyAdsAdder(
+    this, linearLayout,
+    MyAd("https://example.com/icon.png", "My App - what it does", "https://example.com/myapp"),
+    MyAd(R.drawable.other_icon, "Other App - what it does", "https://example.com/other"),
+)
+
+// Show an interstitial anywhere
+ads.showInterAd(this, false)
+
+// Show one when the user presses back. Returns false if no ads are loaded yet.
+onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+    override fun handleOnBackPressed() {
+        if (!ads.showInterAd(this@MainActivity, true)) {
+            isEnabled = false
+            onBackPressedDispatcher.onBackPressed()
+        }
+    }
+})
+```
+
+Java:
+
+```java
+MyAdsAdder ads = new MyAdsAdder(this, linearLayout, "https://example.com/house_ads.json");
+
+ads.showInterAd(this, false);
+```
+
+## Migrating from 1.x
+
+1. The class and method names are the same: `MyAdsAdder`, `MyAd`, `showInterAd`. Most apps only need the new version number.
+2. The library is now in Kotlin and uses AndroidX. Your app must use AndroidX, not the old support library.
+3. The minimum Android version is now 5.0 (API 21).
+4. If the JSON can't be loaded, the library no longer shows a Toast to your users. It writes a warning to Logcat (tag `MyHouseAds`).
+5. `JsonObjectGetter`, `JsonObjectGetListener` and `FayazSP` are removed. They were helpers inside the library.
+6. Picasso is no longer a dependency. Icons are loaded by the library itself.
+7. `MyAdsAdder(context, layout, ads...)` now also works with icon URLs, not only drawables.
+
+If you want rotating banners and a rating dialog too, see the sibling library [HouseAds2](https://github.com/p32929/HouseAds2).
 
 ## License
 
